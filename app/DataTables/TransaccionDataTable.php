@@ -23,7 +23,9 @@ class TransaccionDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', 'transaccion.action')
+            ->addColumn('action', function($t){
+                return view('transacciones.action',['t'=>$t])->render();
+            })
             ->addColumn('total', function($t){
                  return $t->total_efectivo_cheque;
             })
@@ -52,6 +54,11 @@ class TransaccionDataTable extends DataTable
             })
             ->editColumn('cuenta_user_id',function($t){
                 return $t->cuentaUser->numero;
+            })
+            ->filterColumn('cuenta_user_id', function($query, $keyword) {
+                $query->whereHas('cuentaUser', function($query) use ($keyword) {
+                    $query->whereRaw("numero like ?", ["%{$keyword}%"]);
+                });
             })
             ->setRowId('id');
     }
@@ -95,11 +102,11 @@ class TransaccionDataTable extends DataTable
                   ->width(60)
                   ->addClass('text-center'),
             Column::make('tipo_transaccion_id')->searchable(false)->title('Tipo Transacción'),
-            Column::make('valor_efectivo'),
-            Column::make('valor_cheque'),
-            Column::make('total'),
-            Column::make('valor_disponible'),
-            Column::make('cuenta_user_id')->searchable(false)->title('N° Cuenta'),
+            Column::make('valor_efectivo')->searchable(false),
+            Column::make('valor_cheque')->searchable(false),
+            Column::make('total')->searchable(false),
+            Column::make('valor_disponible')->searchable(false),
+            Column::make('cuenta_user_id')->title('N° Cuenta'),
             Column::make('identificacion_user')->title('Identificación'),
             Column::make('apellidos_nombres_user')->title('Apellidos & Nombres'),
             Column::make('numero')->title('N° documento'),

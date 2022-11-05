@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CreditoController;
 use App\Http\Controllers\CuentaUserController;
+use App\Http\Controllers\TipoCreditoController;
 use App\Http\Controllers\TipoCuentaController;
 use App\Http\Controllers\TipoTransaccionController;
 use App\Http\Controllers\TransaccionController;
@@ -45,6 +47,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('transacciones', TransaccionController::class);
     Route::get('transacciones/imprimir-recibo/{id}', [TransaccionController::class,'imprimirRecibo'])->name('transacciones.imprimirRecibo');
     Route::get('transacciones/imprimir-comprobante/{id}', [TransaccionController::class,'imprimirComprobante'])->name('transacciones.imprimirComprobante');
+
+    // tipo de crédito
+    Route::resource('tipo-creditos', TipoCreditoController::class);
+
+    // creditos
+    Route::resource('creditos', CreditoController::class);
+    Route::get('creditos/tabla-amortizacion/{id}', [CreditoController::class,'tablaAmortizacion'])->name('creditos.tabla-amortizacion');
+    Route::get('creditos/pagare/{id}', [CreditoController::class,'pagare'])->name('creditos.pagare');
+    Route::get('creditos/garantes/{id}', [CreditoController::class,'garantes'])->name('creditos.garantes');
+    Route::post('creditos/garantes/actualizar', [CreditoController::class,'garantesActualizar'])->name('creditos.garantes-actualizar');
+
 });
 
 

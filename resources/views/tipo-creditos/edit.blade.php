@@ -2,14 +2,14 @@
 @section('breadcrumb')
 <div class="d-flex">
     <div class="breadcrumb py-2">
-        {{ Breadcrumbs::render('tipo-cuentas.edit',$tc) }}
+        {{ Breadcrumbs::render('tipo-creditos.edit',$tc) }}
     </div>
 </div>
 
 @endsection
 @section('content')
     
-    <form action="{{ route('tipo-cuentas.update',$tc) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('tipo-creditos.update',$tc) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method("PUT")
         <div class="card">
@@ -49,11 +49,11 @@
                 <div class="col-md-6 mb-1">
                     <div class="form-floating form-control-feedback form-control-feedback-start">
                         <div class="form-control-feedback-icon">
-                            <i class="ph-currency-dollar"></i>
+                            <i class="ph-percent"></i>
                         </div>
-                        <input name="valor_apertura" value="{{ old('valor_apertura',$tc->valor_apertura) }}" type="number" min="0" step="0.01" class="form-control @error('valor_apertura') is-invalid @enderror" required>
-                        <label>Valor de apertura<i class="text-danger">*</i></label>
-                        @error('valor_apertura')
+                        <input name="tasa_efectiva_anual" value="{{ old('tasa_efectiva_anual',$tc->tasa_efectiva_anual) }}" type="number" min="0" step="0.01" class="form-control @error('tasa_efectiva_anual') is-invalid @enderror" required>
+                        <label>Tasa efectiva anual<i class="text-danger">*</i></label>
+                        @error('tasa_efectiva_anual')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -63,11 +63,11 @@
                 <div class="col-md-6 mb-1">
                     <div class="form-floating form-control-feedback form-control-feedback-start">
                         <div class="form-control-feedback-icon">
-                            <i class="ph-currency-dollar"></i>
+                            <i class="ph-percent"></i>
                         </div>
-                        <input name="valor_debito" value="{{ old('valor_debito',$tc->valor_debito) }}" type="number" min="0" step="0.01" class="form-control @error('valor_debito') is-invalid @enderror" required>
-                        <label>Valor de débito<i class="text-danger">*</i></label>
-                        @error('valor_debito')
+                        <input name="tasa_nominal" value="{{ old('tasa_nominal',$tc->tasa_nominal) }}" type="number" min="0" step="0.01" class="form-control @error('tasa_nominal') is-invalid @enderror" required>
+                        <label>Tasa nominal<i class="text-danger">*</i></label>
+                        @error('tasa_nominal')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>

@@ -63,5 +63,10 @@ class CuentaUser extends Model
         return $this->belongsTo(TipoCuenta::class, 'tipo_cuenta_id');
     }
 
+    // Deivid, una c uentaUser tiene varias transacciones
+    public function transacciones()
+    {
+        return $this->hasMany(Transaccion::class, 'cuenta_user_id');
+    }
     
 }

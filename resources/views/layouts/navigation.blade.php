@@ -51,3 +51,19 @@
         </span>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{ route('tipo-creditos.index') }}" class="nav-link {{ Route::is('tipo-creditos.*')?'active':'' }}">
+        <i class="ph-cardholder"></i>
+        <span>
+            Tipo de crédito
+        </span>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{{ route('creditos.index') }}" class="nav-link {{ Route::is('creditos.*')?'active':'' }}">
+        <i class="ph-table"></i>
+        <span>
+            Créditos
+        </span>
+    </a>
+</li>

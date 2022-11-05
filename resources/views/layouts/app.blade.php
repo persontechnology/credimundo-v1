@@ -35,6 +35,7 @@
 
     <script src="{{ asset('admin/js/app.js') }}"></script>
 
+    @stack('scriptsHeader')
     <!-- /theme JS files -->
 
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}

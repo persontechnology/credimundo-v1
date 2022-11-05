@@ -75,4 +75,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return "{$this->apellidos} {$this->nombres}";
     }
+
+    public function esGarante($idUser,$idCredito)
+    {
+        $creditoGarante=CreditoGarante::where(['credito_id'=>$idCredito,'user_id'=>$idUser])->first();
+        if($creditoGarante){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

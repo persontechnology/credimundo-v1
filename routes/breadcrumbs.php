@@ -81,10 +81,37 @@ Breadcrumbs::for('transacciones.index', function (BreadcrumbTrail $trail) {
     $trail->push('Transacciones', route('transacciones.index'));
 });
 Breadcrumbs::for('transacciones.create', function (BreadcrumbTrail $trail) {
-    $trail->parent('dashboard');
+    $trail->parent('transacciones.index');
     $trail->push('Nuevo', route('transacciones.create'));
 });
 Breadcrumbs::for('transacciones.show', function (BreadcrumbTrail $trail,$t) {
-    $trail->parent('transacciones.create');
+    $trail->parent('transacciones.index');
     $trail->push('Detalle', route('transacciones.show',$t));
+});
+// tipo de creditos
+Breadcrumbs::for('tipo-creditos.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Tipo créditos', route('tipo-creditos.index'));
+});
+Breadcrumbs::for('tipo-creditos.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('tipo-creditos.index');
+    $trail->push('Nuevo', route('tipo-creditos.create'));
+});
+Breadcrumbs::for('tipo-creditos.edit', function (BreadcrumbTrail $trail,$tc) {
+    $trail->parent('tipo-creditos.index');
+    $trail->push('Editar', route('tipo-creditos.edit',$tc));
+});
+
+// creditos
+Breadcrumbs::for('creditos.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Créditos', route('creditos.index'));
+});
+Breadcrumbs::for('creditos.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('creditos.index');
+    $trail->push('Nuevo', route('creditos.create'));
+});
+Breadcrumbs::for('creditos.show', function (BreadcrumbTrail $trail,$c) {
+    $trail->parent('creditos.index');
+    $trail->push('Ver', route('creditos.show',$c));
 });

@@ -117,31 +117,4 @@
         </div>
     </form>
 @endsection
-@push('scripts')
-    <script>
-    
 
-    $('#foto').fileinput({
-        
-        browseLabel: 'Foto personal',
-        browseClass: 'btn btn-outline-primary w-100',
-        language: "es",
-        theme: "fa6",
-        showRemove: false,
-        showCaption: false,
-        showUpload: false,
-        
-    });
-    $('#foto_identificacion').fileinput({
-        
-        browseLabel: 'Foto identificación',
-        browseClass: 'btn btn-outline-primary w-100',
-        language: "es",
-        theme: "fa6",
-        showRemove: false,
-        showCaption: false,
-        showUpload: false,
-        
-    });
-    </script>
-@endpush

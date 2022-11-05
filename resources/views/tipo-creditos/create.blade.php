@@ -2,16 +2,15 @@
 @section('breadcrumb')
 <div class="d-flex">
     <div class="breadcrumb py-2">
-        {{ Breadcrumbs::render('tipo-cuentas.edit',$tc) }}
+        {{ Breadcrumbs::render('tipo-creditos.create') }}
     </div>
 </div>
 
 @endsection
 @section('content')
     
-    <form action="{{ route('tipo-cuentas.update',$tc) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('tipo-creditos.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        @method("PUT")
         <div class="card">
            
             <div class="card-body row">
@@ -21,7 +20,7 @@
                         <div class="form-control-feedback-icon">
                             <i class="ph-exam"></i>
                         </div>
-                        <input name="codigo" value="{{ old('codigo',$tc->codigo) }}" type="text" class="form-control @error('codigo') is-invalid @enderror" autofocus required>
+                        <input name="codigo" value="{{ old('codigo') }}" type="text" class="form-control @error('codigo') is-invalid @enderror" autofocus required>
                         <label>Código<i class="text-danger">*</i></label>
                         @error('codigo')
                             <div class="invalid-feedback">
@@ -36,7 +35,7 @@
                         <div class="form-control-feedback-icon">
                             <i class="ph-text-aa"></i>
                         </div>
-                        <input name="nombre" value="{{ old('nombre',$tc->nombre) }}" type="text" class="form-control @error('nombre') is-invalid @enderror" required>
+                        <input name="nombre" value="{{ old('nombre') }}" type="text" class="form-control @error('nombre') is-invalid @enderror" required>
                         <label>Nombre<i class="text-danger">*</i></label>
                         @error('nombre')
                             <div class="invalid-feedback">
@@ -49,11 +48,11 @@
                 <div class="col-md-6 mb-1">
                     <div class="form-floating form-control-feedback form-control-feedback-start">
                         <div class="form-control-feedback-icon">
-                            <i class="ph-currency-dollar"></i>
+                            <i class="ph-percent"></i>
                         </div>
-                        <input name="valor_apertura" value="{{ old('valor_apertura',$tc->valor_apertura) }}" type="number" min="0" step="0.01" class="form-control @error('valor_apertura') is-invalid @enderror" required>
-                        <label>Valor de apertura<i class="text-danger">*</i></label>
-                        @error('valor_apertura')
+                        <input name="tasa_efectiva_anual" value="{{ old('tasa_efectiva_anual') }}" type="number" min="0" step="0.01" class="form-control @error('tasa_efectiva_anual') is-invalid @enderror" required>
+                        <label>Tasa efectiva anual<i class="text-danger">*</i></label>
+                        @error('tasa_efectiva_anual')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -63,11 +62,11 @@
                 <div class="col-md-6 mb-1">
                     <div class="form-floating form-control-feedback form-control-feedback-start">
                         <div class="form-control-feedback-icon">
-                            <i class="ph-currency-dollar"></i>
+                            <i class="ph-percent"></i>
                         </div>
-                        <input name="valor_debito" value="{{ old('valor_debito',$tc->valor_debito) }}" type="number" min="0" step="0.01" class="form-control @error('valor_debito') is-invalid @enderror" required>
-                        <label>Valor de débito<i class="text-danger">*</i></label>
-                        @error('valor_debito')
+                        <input name="tasa_nominal" value="{{ old('tasa_nominal') }}" type="number" min="0" step="0.01" class="form-control @error('tasa_nominal') is-invalid @enderror" required>
+                        <label>Tasa nominal<i class="text-danger">*</i></label>
+                        @error('tasa_nominal')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -82,8 +81,8 @@
                         </div>
                         <select class="form-select @error('estado') is-invalid @enderror" name="estado" required>
                             <option value=""></option>
-                            <option value="ACTIVO" {{ old('estado',$tc->estado)=='ACTIVO'?'selected':'' }}>ACTIVO</option>
-                            <option value="INACTIVO" {{ old('estado',$tc->estado)=='INACTIVO'?'selected':'' }}>INACTIVO</option>
+                            <option value="ACTIVO" {{ old('estado')=='ACTIVO'?'selected':'' }}>ACTIVO</option>
+                            <option value="INACTIVO" {{ old('estado')=='INACTIVO'?'selected':'' }}>INACTIVO</option>
                         </select>
 
                         <label>Estado<i class="text-danger">*</i></label>
@@ -102,7 +101,7 @@
                         <div class="form-control-feedback-icon">
                             <i class="ph-article"></i>
                         </div>
-                        <input name="descripcion" value="{{ old('descripcion',$tc->descripcion) }}" type="text" class="form-control @error('descripcion') is-invalid @enderror">
+                        <input name="descripcion" value="{{ old('descripcion') }}" type="text" class="form-control @error('descripcion') is-invalid @enderror">
                         <label>Descripción</label>
                         @error('descripcion')
                             <div class="invalid-feedback">

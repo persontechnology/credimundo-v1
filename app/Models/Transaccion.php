@@ -35,10 +35,11 @@ class Transaccion extends Model
         self::created(function($model){
 
             switch ($model->tipoTransaccion->tipo) {
-                case 'SALIDA':
                 case 'DEBITO':
+                case 'SALIDA':
                     $model->cuentaUser->valor_disponible=$model->cuentaUser->valor_disponible-$model->total_efectivo_cheque;   
                     break;
+                case 'ABONO':
                 case 'INGRESO':
                     $model->cuentaUser->valor_disponible=$model->cuentaUser->valor_disponible+$model->total_efectivo_cheque;   
                     break;
@@ -49,6 +50,10 @@ class Transaccion extends Model
             $model->cuentaUser->save();
             $model->valor_disponible=$model->cuentaUser->valor_disponible;
             $model->save();
+         });
+
+         self::updated(function($model){
+            
          });
     }
 
@@ -68,7 +73,7 @@ class Transaccion extends Model
     // Deiivd, total de transacion
     public function getTotalEfectivoChequeAttribute()
     {
-        return number_format($this->valor_efectivo+$this->valor_cheque,2);
+        return $this->valor_efectivo+$this->valor_cheque;
     }
 
      // Deivid, una transaccion tiene una cuentauser

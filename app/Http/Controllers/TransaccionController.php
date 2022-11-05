@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DataTables\Transaccion\CuentaUserDataTable;
 use App\DataTables\TransaccionDataTable;
+use App\Http\Requests\Transaccion\RqActualizar;
 use App\Http\Requests\Transaccion\RqGuardar;
 use App\Models\TipoTransaccion;
 use App\Models\Transaccion;
@@ -62,8 +63,8 @@ class TransaccionController extends Controller
             return redirect()->route('transacciones.show',$t);
         } catch (\Throwable $th) {
             DB::rollBack();
-            Session::flash('info','Transacción no realizado');
-            return redirect()->back();
+            Session::flash('info','Transacción no realizado'.$th->getMessage());
+            return redirect()->back()->withInput();
         }
         
     }
@@ -77,7 +78,10 @@ class TransaccionController extends Controller
     public function show($transaccionId)
     {
         $transaccion=Transaccion::findOrFail($transaccionId);
-        $data = array('trans' => $transaccion );
+        $data = array(
+            'trans' => $transaccion,
+            'ultimos_trans'=>$transaccion->cuentaUser->transacciones()->where('id','<',$transaccion->id)->latest()->take(3)->get()
+        );
         return view('transacciones.show',$data);
     }
 
@@ -87,9 +91,15 @@ class TransaccionController extends Controller
      * @param  \App\Models\Transaccion  $transaccion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Transaccion $transaccion)
+    public function edit($transaccionId)
     {
-        //
+        $transaccion=Transaccion::findOrFail($transaccionId);
+
+        $data = array(
+            'trans' => $transaccion,
+            'tipoTransacciones' => TipoTransaccion::where('estado','ACTIVO')->get(),
+        );
+        return view('transacciones.edit',$data);
     }
 
     /**
@@ -99,9 +109,45 @@ class TransaccionController extends Controller
      * @param  \App\Models\Transaccion  $transaccion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Transaccion $transaccion)
+    public function update(RqActualizar $request,$transaccionId)
     {
-        //
+        $data = array(
+            'estado'=>$request->estado,
+            'detalle'=>$request->detalle
+        );
+
+        try {
+            DB::beginTransaction();
+            $t=Transaccion::findOrFail($transaccionId);
+            if($t->estado=='ACTIVO'){
+                $t->update($data);
+                switch ($t->tipoTransaccion->tipo) {
+                    case 'SALIDA':
+                    case 'DEBITO':
+                        $t->cuentaUser->valor_disponible=$t->cuentaUser->valor_disponible+$t->total_efectivo_cheque;   
+                        break;
+                    
+                    case 'ABONO':
+                    case 'INGRESO':
+                        $t->cuentaUser->valor_disponible=$t->cuentaUser->valor_disponible-$t->total_efectivo_cheque;   
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
+                $t->cuentaUser->save();
+                $t->valor_disponible=$t->cuentaUser->valor_disponible;
+                $t->save();
+            }
+
+            DB::commit();
+            Session::flash('success','Transacción actualizado');
+            return redirect()->route('transacciones.show',$t);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            Session::flash('info','Transacción no actualizado');
+            return redirect()->back();
+        }
     }
 
     /**
@@ -118,12 +164,14 @@ class TransaccionController extends Controller
     public function imprimirRecibo($transaccionId)
     {
         $transaccion=Transaccion::findOrFail($transaccionId);
+
         $data = array(
-            'trans'=>$transaccion
+            'trans'=>$transaccion,
+            'ultimos_trans'=>$transaccion->cuentaUser->transacciones()->where('id','<',$transaccion->id)->latest()->take(3)->get()
         );
         $pdf = PDF::loadView('transacciones.imprimir-recibo', $data)
         ->setOption('page-width', '78')
-        ->setOption('page-height', '60')
+        ->setOption('page-height', '62')
         ->setOption('margin-top', 2)
         ->setOption('margin-bottom', 2)
         ->setOption('margin-left', 2)
@@ -135,11 +183,12 @@ class TransaccionController extends Controller
     {
         $transaccion=Transaccion::findOrFail($transaccionId);
         $data = array(
-            'trans'=>$transaccion
+            'trans'=>$transaccion,
+            'ultimos_trans'=>$transaccion->cuentaUser->transacciones()->where('id','<',$transaccion->id)->latest()->take(3)->get()
         );
         $pdf = PDF::loadView('transacciones.imprimir-comprobante', $data)
         ->setOption('page-width', '163')
-        ->setOption('page-height', '71')
+        ->setOption('page-height', '62')
         ->setOption('margin-top', 2)
         ->setOption('margin-bottom', 2)
         ->setOption('margin-left', 2)

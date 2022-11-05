@@ -7,7 +7,7 @@
     <title>{{ 'Recibo N° '.$trans->numero }}</title>
     <style>
         html {
-            font-size: small;
+            font-size: x-small;
         }
     </style>
 </head>
@@ -31,6 +31,7 @@
                                     DOCUMENTO: {{ $trans->numero }} <br>
                                     OFICINA: {{ $trans->creadoPor->canton }} <br>
                                     FECHA: {{ $trans->created_at->toDateString() }} <br>
+                                    VALOR DISPONIBLE: {{ $trans->cuentaUser->valor_disponible }} <br>
                                     USUARIO: {{ Str::limit($trans->creadoPor->name,30,'') }} <br>
                                 </p>
                             </td>
@@ -61,6 +62,20 @@
                                 {{ $trans->total_efectivo_cheque }}
                             </td>
                         </tr>
+                        @if ($ultimos_trans->count()>0)
+                            <tr>
+                                <td>FECHA/DESC</td>
+                                <td>VALOR</td>
+                                <td>DISPONIBLE</td>
+                            </tr>
+                            @foreach ($ultimos_trans as $ultr)
+                                <tr>
+                                    <td>{{ $trans->created_at->toDateString() }} {{ Str::limit($ultr->tipoTransaccion->nombre,30,'.') }}</td>
+                                    <td style="text-align: center;">{{ $ultr->total_efectivo_cheque }}</td>
+                                    <td style="text-align: center;">{{ $ultr->valor_disponible }}</td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </table>    
                 </td>
             </tr>

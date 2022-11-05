@@ -40,6 +40,7 @@
             Por la presente me permito solicitar mi incorporación como Socio de <strong>{{ config('app.name','CREDIMUNDO') }}</strong>, para lo cual indico a continuación los antecedentes necesarios, declarando, desde luego, que me comprometo a respetar y a aplicar los Estatutos de la Institución.
         </p>
         
+        
         <table>
             <thead>
                 <tr>
@@ -179,6 +180,9 @@
             </tbody>
         </table>
         <br>
+        <p>
+            Declaro que los fondos recibidos y entregados del <strong>{{ config('app.name','') }}</strong>, provienen y serán utilizados en actividades lícitas y no serán destinados a la realización o financiamiento de alguna actividad ilícita.
+        </p>
         <p>          
             Saluda a usted muy atentamente,
         </p>

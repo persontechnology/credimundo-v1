@@ -28,20 +28,43 @@
         <h6 class="mb-0">Detalle de transacción</h6>
     </div>
     <div class="card-body">
-    
-        <strong>N° documento: </strong>{{ $trans->numero }} <br>
+        <strong>Tipo de transacción: </strong>{{ $trans->tipoTransaccion->nombre }} - {{ $trans->tipoTransaccion->codigo }}, {{ $trans->tipoTransaccion->tipo }}<br>
         <strong>Valor efectivo: </strong>{{ $trans->valor_efectivo }} <br>
         <strong>Valor cheque: </strong>{{ $trans->valor_cheque }} <br>
         <strong>Total: </strong>{{ $trans->valor_efectivo+$trans->valor_cheque }} <br>
         <strong>Valor disponible: </strong>{{ $trans->valor_disponible }} <br>
+        <strong>N° documento: </strong>{{ $trans->numero }} <br>
         <strong>Estado: </strong>{{ $trans->estado }} <br>
         <strong>Detalle: </strong>{{ $trans->detalle }} <br>
         <strong>Cuenta de usuario: </strong>N° cuenta: {{ $trans->cuenta_user_id }}, {{ $trans->cuentaUser->user->apellidos_nombres }}<br>
-        <strong>Tipo de transacción: </strong>{{ $trans->tipoTransaccion->nombre }} - {{ $trans->tipoTransaccion->codigo }}, {{ $trans->tipoTransaccion->tipo }}<br>
         <strong>Creado por: </strong>{{ $trans->creadoPor->apellidos_nombres }} <br>
-        <strong>Actualizado por: </strong>{{ $trans->actualizadoPor->apellidos_nombres }} <br>
+        <strong>Actualizado por: </strong>{{ $trans->actualizadoPor->apellidos_nombres??'' }} <br>
         <strong>Creado el: </strong>{{ $trans->created_at }} <br>
         <strong>Actualizado el: </strong>{{ $trans->updated_at }} <br>
+
+        @if ($ultimos_trans->count()>0)
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>FECHA/DESC</th>
+                            <th>VALOR</th>
+                            <th>DISPONIBLE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        @foreach ($ultimos_trans as $ultr)
+                            <tr>
+                                <td>{{ $trans->created_at->toDateString() }} {{ Str::limit($ultr->tipoTransaccion->nombre,30,'.') }}</td>
+                                <td>{{ $ultr->total_efectivo_cheque }}</td>
+                                <td>{{ $ultr->valor_disponible }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        @endif
         
     </div>
    </div>

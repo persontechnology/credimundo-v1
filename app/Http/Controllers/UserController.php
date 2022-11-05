@@ -111,7 +111,7 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, $userId)
     {
         $user=User::findOrFail($userId);
-        return $user;
+        
         try {
             DB::beginTransaction();
         
