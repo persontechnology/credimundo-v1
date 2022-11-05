@@ -28,7 +28,7 @@ return new class extends Migration
             $table->decimal('pago_mensual',19,2);
             $table->decimal('pagos_totales',19,2);
             $table->decimal('interes_totales',19,2);
-            $table->enum('estado',['INGRESADO','REVISION','ENTREGADO','CANCELADO']);
+            $table->enum('estado',['INGRESADO','ENTREGADO','CANCELADO','ANULADO']);
             $table->decimal('ahorro_programado');
             $table->decimal('total_ahorro_programado');
             $table->string('detalle')->nullable();

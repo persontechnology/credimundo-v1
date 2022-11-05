@@ -40,7 +40,7 @@
         </table>
     </div>
     <p>
-        Debo(emos) y pagaré(mos), solidariamente desde <strong>{{ $credito->numero_cuotas }} </strong> cuotas; en la cuidad de <strong>{{ $credito->creadoPor->canton??'SALCEDO' }}</strong> o en el lugar donde se me(nos) solicite, a la orden de <strong>{{ config('app.name','CREDIMUNDO') }}</strong>, la cantidad de
+        Debo(emos) y pagaré(mos), solidariamente a <strong>{{ $credito->numero_cuotas }} </strong> cuotas fijas; en la cuidad de <strong>{{ $credito->creadoPor->canton??'SALCEDO' }}</strong> o en el lugar donde se me(nos) solicite, a la orden de <strong>{{ config('app.name','CREDIMUNDO') }}</strong>, la cantidad de
         <strong>{{ number_format($credito->monto,2) }}</strong> Dólares de los Estados Unidos de América, por igual valor recibido de dicha institución Financiera, en moneda de curso legal que la he(mos) recibido para invirtirla en actividad <strong>{{ $credito->actividad??$credito->tipoCredito->descripcion??'' }}</strong>.
     </p>
     <p>
@@ -80,13 +80,16 @@
                 {{ $credito->cuentaUser->user->identificacion }} <br>
                 <strong>Socio</strong>
             </td>
+            @if ($credito->cuentaUser->user->nombre_conyuge)
             <td style="border: none;">
                 <br><br><br>
                 .......................................................................................... <br>
                 {{ $credito->cuentaUser->user->nombre_conyuge }} <br>
                 {{ $credito->cuentaUser->user->identificacion_conyuge }} <br>
                 <strong>CONYUGE</strong>
-            </td>
+            </td>    
+            @endif
+            
         </tr>
     </table>
     

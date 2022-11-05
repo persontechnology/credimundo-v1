@@ -2,7 +2,7 @@
 @section('breadcrumb')
 <div class="d-flex">
     <div class="breadcrumb py-2">
-        {{ Breadcrumbs::render('cuentas-usuario.create') }}
+        {{ Breadcrumbs::render('creditos.garantes',$credito) }}
     </div>
 
 </div>

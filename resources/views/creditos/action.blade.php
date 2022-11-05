@@ -16,7 +16,7 @@
             <i class="ph-file-pdf me-2"></i>Tabla de amortización
         </a>
 
-        <a href="{{ route('tipo-cuentas.edit',$c) }}" class="dropdown-item">
+        <a href="{{ route('creditos.edit',$c) }}" class="dropdown-item">
             <i class="ph-pen me-2"></i>Editar
         </a>
 

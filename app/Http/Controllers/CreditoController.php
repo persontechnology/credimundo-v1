@@ -115,7 +115,7 @@ class CreditoController extends Controller
      */
     public function edit(Credito $credito)
     {
-        //
+        return view('creditos.edit',['credito'=>$credito]);
     }
 
     /**
@@ -127,7 +127,14 @@ class CreditoController extends Controller
      */
     public function update(Request $request, Credito $credito)
     {
-        //
+        $data = array(
+            'estado' => $request->estado,
+            'detalle'=>$request->detalle,
+            'actividad'=>$request->actividad
+         );
+        $credito->update($data);
+        Session::flash('success','Crédito actualizado');
+        return redirect()->route('creditos.show',$credito);
     }
 
     /**
@@ -180,7 +187,8 @@ class CreditoController extends Controller
     }
     public function garantes(GaranteDataTable $dataTable, $creditoId)
     {
-        $data = array('credito' => Credito::findOrFail($creditoId) );
+        $credito=Credito::findOrFail($creditoId);
+        $data = array('credito' => $credito );
         return $dataTable->with('idCredito',$creditoId)->render('creditos.garantes',$data);
     }
 
@@ -191,8 +199,9 @@ class CreditoController extends Controller
             'garantes'=>'nullable|array',
             'garantes.*'=>'nullable|exists:users,id'
         ]);
-        
         $credito=Credito::findOrFail($request->credito);
+        $this->authorize('garantes', $credito);
+
         $credito->garantes()->sync($request->garantes);
         Session::flash('success','Garantes actualizados');
         return redirect()->route('creditos.garantes',$credito);

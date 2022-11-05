@@ -238,7 +238,7 @@
     </div>
     <p>Firman:</p>
 
-    <table style="border: none;">
+    <table style="border: none; text-align: center;">
         <tr style="border: none;">
             <td style="border: none;">
                 <br><br><br>
@@ -247,13 +247,16 @@
                 {{ $credito->cuentaUser->user->identificacion }} <br>
                 <strong>Socio</strong>
             </td>
-            <td style="border: none;">
-                <br><br><br>
-                .......................................................................................... <br>
-                {{ $credito->cuentaUser->user->nombre_conyuge }} <br>
-                {{ $credito->cuentaUser->user->identificacion_conyuge }} <br>
-                <strong>CONYUGE</strong>
-            </td>
+            @if ($credito->cuentaUser->user->nombre_conyuge)
+                <td style="border: none;">
+                    <br><br><br>
+                    .......................................................................................... <br>
+                    {{ $credito->cuentaUser->user->nombre_conyuge }} <br>
+                    {{ $credito->cuentaUser->user->identificacion_conyuge }} <br>
+                    <strong>CONYUGE</strong>
+                </td>  
+            @endif
+            
         </tr>
     </table>
     <div style="text-align: center;">

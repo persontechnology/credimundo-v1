@@ -76,7 +76,7 @@
                             <div class="form-control-feedback-icon">
                                 <i class="ph-article"></i>
                             </div>
-                            <input name="ahorro_programado" id="ahorro_programado" value="{{ old('ahorro_programado',10) }}" type="number" step="0.01" min="0" class="form-control @error('ahorro_programado') is-invalid @enderror" required>
+                            <input name="ahorro_programado" id="ahorro_programado" value="{{ old('ahorro_programado',0) }}" type="number" step="0.01" min="0" class="form-control @error('ahorro_programado') is-invalid @enderror" required>
                             <label>Ahorro programado<i class="text-danger">*</i></label>
                             @error('ahorro_programado')
                                 <div class="invalid-feedback">

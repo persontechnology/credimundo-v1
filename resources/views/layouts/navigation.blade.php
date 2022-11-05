@@ -1,6 +1,36 @@
 <!-- Main -->
 <li class="nav-item-header pt-0">
-    <div class="text-uppercase fs-sm lh-sm opacity-50 sidebar-resize-hide">Principal</div>
+    <div class="text-uppercase fs-sm lh-sm opacity-50 sidebar-resize-hide">Administración</div>
+    <i class="ph-dots-three sidebar-resize-show"></i>
+</li>
+
+
+<li class="nav-item">
+    <a href="{{ route('tipo-cuentas.index') }}" class="nav-link {{ Route::is('tipo-cuentas.*')?'active':'' }}">
+        <i class="ph-cards"></i>
+        <span>
+            Tipo de cuentas
+        </span>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{{ route('tipo-transacciones.index') }}" class="nav-link {{ Route::is('tipo-transacciones.*')?'active':'' }}">
+        <i class="ph-arrows-left-right"></i>
+        <span>
+            Tipo de transacción
+        </span>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{{ route('tipo-creditos.index') }}" class="nav-link {{ Route::is('tipo-creditos.*')?'active':'' }}">
+        <i class="ph-cardholder"></i>
+        <span>
+            Tipo de crédito
+        </span>
+    </a>
+</li>
+<li class="nav-item-header">
+    <div class="text-uppercase fs-sm lh-sm opacity-50 sidebar-resize-hide">Módulos</div>
     <i class="ph-dots-three sidebar-resize-show"></i>
 </li>
 <li class="nav-item">
@@ -20,22 +50,6 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('tipo-cuentas.index') }}" class="nav-link {{ Route::is('tipo-cuentas.*')?'active':'' }}">
-        <i class="ph-cards"></i>
-        <span>
-            Tipo de cuentas
-        </span>
-    </a>
-</li>
-<li class="nav-item">
-    <a href="{{ route('tipo-transacciones.index') }}" class="nav-link {{ Route::is('tipo-transacciones.*')?'active':'' }}">
-        <i class="ph-arrows-left-right"></i>
-        <span>
-            Tipo de transacción
-        </span>
-    </a>
-</li>
-<li class="nav-item">
     <a href="{{ route('cuentas-usuario.index') }}" class="nav-link {{ Route::is('cuentas-usuario.*')?'active':'' }}">
         <i class="ph-credit-card"></i>
         <span>
@@ -51,14 +65,7 @@
         </span>
     </a>
 </li>
-<li class="nav-item">
-    <a href="{{ route('tipo-creditos.index') }}" class="nav-link {{ Route::is('tipo-creditos.*')?'active':'' }}">
-        <i class="ph-cardholder"></i>
-        <span>
-            Tipo de crédito
-        </span>
-    </a>
-</li>
+
 <li class="nav-item">
     <a href="{{ route('creditos.index') }}" class="nav-link {{ Route::is('creditos.*')?'active':'' }}">
         <i class="ph-table"></i>

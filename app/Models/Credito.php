@@ -91,9 +91,32 @@ class Credito extends Model
         return $this->tablaCreditos()->latest()->first()->fecha_pago;
     }
     
+
+    // Deivid, un crdito tiene varios garantes
     public function garantes()
     {
         return $this->belongsToMany(User::class, 'credito_garantes', 'credito_id', 'user_id');
     }
-
+    
+    // Deivid, color de estado del credito
+    public function getColorEstadoAttribute()
+    {
+        // INGRESADO, REVISION, ENTREGADO, CANCELADO
+        $colorEstado = '';
+        switch ($this->estado) {
+            case 'INGRESADO':
+                $colorEstado = "primary";
+                break;
+            case 'ENTREGADO':
+                $colorEstado = "warning";
+                break;
+            case 'CANCELADO':
+                $colorEstado = "success";
+                break;
+            case 'ANULADO':
+                $colorEstado = "danger";
+                break;
+        }
+        return  $colorEstado;
+    }
 }

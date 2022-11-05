@@ -115,3 +115,11 @@ Breadcrumbs::for('creditos.show', function (BreadcrumbTrail $trail,$c) {
     $trail->parent('creditos.index');
     $trail->push('Ver', route('creditos.show',$c));
 });
+Breadcrumbs::for('creditos.garantes', function (BreadcrumbTrail $trail,$c) {
+    $trail->parent('creditos.show',$c);
+    $trail->push('Garantes', route('creditos.garantes',$c));
+});
+Breadcrumbs::for('creditos.edit', function (BreadcrumbTrail $trail,$c) {
+    $trail->parent('creditos.index');
+    $trail->push('Editar', route('creditos.edit',$c));
+});

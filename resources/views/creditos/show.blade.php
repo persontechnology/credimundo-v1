@@ -31,15 +31,12 @@
 @endsection
 @section('content')
     <div class="card">
-        {{-- <div class="card-header">
-            
-            
-        </div> --}}
-        <div class="card-body">
-            @include('creditos.tabla-credito',['credito'=>$credito])
+        <div class="card-header">
+            @include('creditos.estado',['credito'=>$credito])
         </div>
-        <div class="card-footer text-muted">
-            Footer
+        <div class="card-body">
+            
+            @include('creditos.tabla-credito',['credito'=>$credito])
         </div>
     </div>
 @endsection
