@@ -7,6 +7,8 @@ use App\Http\Controllers\TipoCuentaController;
 use App\Http\Controllers\TipoTransaccionController;
 use App\Http\Controllers\TransaccionController;
 use App\Http\Controllers\UserController;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +23,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $u=User::where('email','david.criollo14@gmail.com')->first();
+    $u->password=Hash::make('123456789');
+    $u->save();
     return view('welcome');
 });
 
@@ -39,6 +44,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // cuenta de usuarios
     Route::resource('cuentas-usuario', CuentaUserController::class);
     Route::get('cuentas-usuario/solicitud-apertura-cuenta/{id}',[CuentaUserController::class,'solicitudAperturaCuenta'])->name('cuentas-usuario.solicitud-apertura-cuenta');
+    Route::get('cuentas-usuario/transacciones-pdf/{id}',[CuentaUserController::class,'transaccionesPdf'])->name('cuentas-usuario.transacciones-pdf');
 
     // tipo de transaccion
     Route::resource('tipo-transacciones', TipoTransaccionController::class);

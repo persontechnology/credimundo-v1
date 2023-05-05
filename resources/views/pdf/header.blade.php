@@ -13,7 +13,7 @@
         background-size: cover;
         margin: 0;
         padding: 0;
-        color: #004AAD;
+        color: #180042;
     }
     </style>
 </head>
@@ -23,7 +23,6 @@
         <table style="width:100%">
             <tr>
               <th style="text-align: left; width: 50%;">
-                  
                   <img src="{{ public_path('img/logo_largo.png') }}" alt="" width="350px">
               </th>
               <th class="fondo" style="width: 50%;"><strong>{{ $title??config('app.name','') }}</strong></th>

@@ -14,6 +14,10 @@
             <i class="ph-file-xls me-2"></i>
             Inversiones
         </a>
+        <a href="{{ route('cuentas-usuario.transacciones-pdf',$cu->id) }}" class="dropdown-item">
+            <i class="ph ph-file-pdf me-2"></i>
+            Transacciones PDF
+        </a>
         <a href="#" class="dropdown-item">
             <i class="ph-file-doc me-2"></i>
             Créditos

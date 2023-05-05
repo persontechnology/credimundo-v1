@@ -170,9 +170,9 @@ class TransaccionController extends Controller
             'ultimos_trans'=>$transaccion->cuentaUser->transacciones()->where('id','<',$transaccion->id)->latest()->take(3)->get()
         );
         $pdf = PDF::loadView('transacciones.imprimir-recibo', $data)
-        ->setOption('page-width', '78')
-        ->setOption('page-height', '62')
-        ->setOption('margin-top', 2)
+        ->setOption('page-width', '80')
+        ->setOption('page-height', '297')
+        ->setOption('margin-top', 0)
         ->setOption('margin-bottom', 2)
         ->setOption('margin-left', 2)
         ->setOption('margin-right', 2);
@@ -184,12 +184,12 @@ class TransaccionController extends Controller
         $transaccion=Transaccion::findOrFail($transaccionId);
         $data = array(
             'trans'=>$transaccion,
-            'ultimos_trans'=>$transaccion->cuentaUser->transacciones()->where('id','<',$transaccion->id)->latest()->take(3)->get()
         );
         $pdf = PDF::loadView('transacciones.imprimir-comprobante', $data)
-        ->setOption('page-width', '163')
-        ->setOption('page-height', '62')
-        ->setOption('margin-top', 2)
+        ->setOption('page-width', '92')
+        ->setOption('page-height', '297')
+        // ->setOrientation('landscape')
+        ->setOption('margin-top', 5)
         ->setOption('margin-bottom', 2)
         ->setOption('margin-left', 2)
         ->setOption('margin-right', 2);

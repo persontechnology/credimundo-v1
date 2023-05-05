@@ -170,4 +170,24 @@ class CuentaUserController extends Controller
         return $pdf->inline($title );
         
     }
+
+    public function transaccionesPdf($idUser)
+    {
+        
+        $cuentaUser=CuentaUser::findOrFail($idUser);
+      
+        $data = array(
+            'cuentaUser'=>$cuentaUser,
+            'transacciones'=>$cuentaUser->transacciones
+        );
+        $pdf = PDF::loadView('cuentas-usuario.transaccionesPdf', $data)
+        ->setOption('page-width', '92')
+        ->setOption('page-height', '297')
+        // ->setOrientation('landscape')
+        ->setOption('margin-top', 5)
+        ->setOption('margin-bottom', 2)
+        ->setOption('margin-left', 2)
+        ->setOption('margin-right', 2);
+        return $pdf->inline('Cuenta N° '.$cuentaUser->numero.' '.$cuentaUser->user->apellidos_nombres );
+    }
 }

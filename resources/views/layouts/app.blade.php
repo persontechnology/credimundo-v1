@@ -55,8 +55,8 @@
 
             <div class="navbar-brand flex-1 flex-lg-0">
                 <a href="{{ route('dashboard') }}" class="d-inline-flex align-items-center">
-                    <img src="{{ asset('img/credimundo_icono.svg') }}" alt="">
-                    <img src="{{ asset('img/credimundo_letras.svg') }}" class="d-none d-sm-inline-block h-16px ms-3"
+                    <img src="{{ asset('img/credimundo_icono.png') }}" alt="">
+                    <img src="{{ asset('img/credimundo_letras.png') }}" class="d-none d-sm-inline-block h-16px ms-3"
                         alt="">
                 </a>
             </div>

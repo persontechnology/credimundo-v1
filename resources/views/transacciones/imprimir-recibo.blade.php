@@ -6,18 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ 'Recibo N° '.$trans->numero }}</title>
     <style>
-        html {
-            font-size: x-small;
+        html{
+            font-size: small;
+        }
+        table{
+            width: 100%
         }
     </style>
 </head>
 <body>
-    <div>
+    <div style="align-items: center">
         <table>
             <tr>
-                <td colspan="2">
+                <td colspan="3">
+                    <h1 style="text-align: center;">
+                        <img src="{{ public_path('img/LOGO.png') }}" alt="" height="120px">
+                    </h1>
+                    
                     <p>
-                        {{ config('app.name','') }} <br>
+                        
                         {{ Str::limit($trans->tipoTransaccion->nombre,30,'.') }} <br>
                         {{ $trans->cuentaUser->tipoCuenta->nombre }} <br><br>
                         CUENTA: {{ $trans->cuentaUser->numero }} <br>
@@ -28,14 +35,12 @@
                         USUARIO: {{ Str::limit($trans->creadoPor->name,30,'') }} <br>
                     </p>
                 </td>
-                <td></td>
-                <td></td>
             </tr>
             <tr>
                 <td>
                     EFECTIVO:
                 </td>
-                <td style="text-align: right;">
+                <td style="text-align: right;" colspan="2">
                     {{ $trans->valor_efectivo }}
                 </td>
             </tr>
@@ -43,7 +48,7 @@
                 <td>
                     CHEQUE:
                 </td>
-                <td style="text-align: right;">
+                <td style="text-align: right;" colspan="2">
                     {{ $trans->valor_cheque }}
                 </td>
             </tr>
@@ -51,24 +56,11 @@
                 <td>
                     TOTAL:
                 </td>
-                <td style="text-align: right;">
+                <td style="text-align: right;" colspan="2">
                     {{ $trans->total_efectivo_cheque }}
                 </td>
             </tr>
-            @if ($ultimos_trans->count()>0)
-                <tr>
-                    <td>FECHA/DESC</td>
-                    <td>VALOR</td>
-                    <td>DISPONIBLE</td>
-                </tr>
-                @foreach ($ultimos_trans as $ultr)
-                    <tr>
-                        <td>{{ $trans->created_at->toDateString() }} {{ Str::limit($ultr->tipoTransaccion->nombre,30,'.') }}</td>
-                        <td style="text-align: center;">{{ $ultr->total_efectivo_cheque }}</td>
-                        <td style="text-align: center;">{{ $ultr->valor_disponible }}</td>
-                    </tr>
-                @endforeach
-            @endif
+            
         </table>
     </div>
 </body>
