@@ -10,9 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Global stylesheets -->
-    <link href="{{ asset('admin/fonts/inter/inter.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ asset('admin/icons/fontawesome-free-6.2.0-web/css/all.min.css') }}">
-    <link href="{{ asset('admin/icons/phosphor/styles.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('admin/css/all.min.css') }}" id="stylesheet" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ asset('admin/js/jquery-confirm-v3.3.4/jquery-confirm.min.css') }}">
     <!-- /global stylesheets -->
@@ -89,7 +87,7 @@
                                 <button type="button"
                                     class="dropdown-item text-wrap h-100 align-items-start border-end-sm border-bottom p-3">
                                     <div>
-                                        <img src="{{ asset('img/credimundo_icono.svg') }}" class="h-40px mb-2"
+                                        <img src="{{ asset('img/credimundo_icono.png') }}" class="h-40px mb-2"
                                             alt="">
                                         <div class="fw-semibold my-1">Customer data platform</div>
                                         <div class="text-muted">Unify customer data from multiple sources</div>
@@ -101,7 +99,7 @@
                                 <button type="button"
                                     class="dropdown-item text-wrap h-100 align-items-start border-bottom p-3">
                                     <div>
-                                        <img src="{{ asset('img/credimundo_icono.svg') }}" class="h-40px mb-2"
+                                        <img src="{{ asset('img/credimundo_icono.png') }}" class="h-40px mb-2"
                                             alt="">
                                         <div class="fw-semibold my-1">Data catalog</div>
                                         <div class="text-muted">Discover, inventory, and organize data assets</div>
@@ -113,7 +111,7 @@
                                 <button type="button"
                                     class="dropdown-item text-wrap h-100 align-items-start border-end-sm border-bottom border-bottom-sm-0 rounded-bottom-start p-3">
                                     <div>
-                                        <img src="{{ asset('img/credimundo_icono.svg') }}" class="h-40px mb-2"
+                                        <img src="{{ asset('img/credimundo_icono.png') }}" class="h-40px mb-2"
                                             alt="">
                                         <div class="fw-semibold my-1">Data governance</div>
                                         <div class="text-muted">The collaboration hub and data marketplace</div>
@@ -125,7 +123,7 @@
                                 <button type="button"
                                     class="dropdown-item text-wrap h-100 align-items-start rounded-bottom-end p-3">
                                     <div>
-                                        <img src="{{ asset('img/credimundo_icono.svg') }}" class="h-40px mb-2"
+                                        <img src="{{ asset('img/credimundo_icono.png') }}" class="h-40px mb-2"
                                             alt="">
                                         <div class="fw-semibold my-1">Data privacy</div>
                                         <div class="text-muted">Automated provisioning of non-production datasets</div>
@@ -172,7 +170,7 @@
                         <div class="dropdown-menu-scrollable pb-2">
                             <a href="#" class="dropdown-item align-items-start text-wrap py-2">
                                 <div class="status-indicator-container me-3">
-                                    <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                    <img src="{{ asset('img/credimundo_icono.png') }}"
                                         class="w-40px h-40px rounded-pill" alt="">
                                     <span class="status-indicator bg-warning"></span>
                                 </div>
@@ -187,7 +185,7 @@
 
                             <a href="#" class="dropdown-item align-items-start text-wrap py-2">
                                 <div class="status-indicator-container me-3">
-                                    <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                    <img src="{{ asset('img/credimundo_icono.png') }}"
                                         class="w-40px h-40px rounded-pill" alt="">
                                     <span class="status-indicator bg-success"></span>
                                 </div>
@@ -201,7 +199,7 @@
 
                             <a href="#" class="dropdown-item align-items-start text-wrap py-2">
                                 <div class="status-indicator-container me-3">
-                                    <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                    <img src="{{ asset('img/credimundo_icono.png') }}"
                                         class="w-40px h-40px rounded-pill" alt="">
                                     <span class="status-indicator bg-success"></span>
                                 </div>
@@ -215,7 +213,7 @@
 
                             <a href="#" class="dropdown-item align-items-start text-wrap py-2">
                                 <div class="status-indicator-container me-3">
-                                    <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                    <img src="{{ asset('img/credimundo_icono.png') }}"
                                         class="w-40px h-40px rounded-pill" alt="">
                                     <span class="status-indicator bg-grey"></span>
                                 </div>
@@ -228,7 +226,7 @@
 
                             <a href="#" class="dropdown-item align-items-start text-wrap py-2">
                                 <div class="status-indicator-container me-3">
-                                    <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                    <img src="{{ asset('img/credimundo_icono.png') }}"
                                         class="w-40px h-40px rounded-pill" alt="">
                                     <span class="status-indicator bg-danger"></span>
                                 </div>
@@ -285,7 +283,7 @@
 
                                 <div class="dropdown-item cursor-pointer">
                                     <div class="me-3">
-                                        <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                        <img src="{{ asset('img/credimundo_icono.png') }}"
                                             class="w-32px h-32px rounded-pill" alt="">
                                     </div>
 
@@ -303,7 +301,7 @@
 
                                 <div class="dropdown-item cursor-pointer">
                                     <div class="me-3">
-                                        <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                        <img src="{{ asset('img/credimundo_icono.png') }}"
                                             class="w-32px h-32px rounded-pill" alt="">
                                     </div>
 
@@ -331,7 +329,7 @@
 
                                 <div class="dropdown-item cursor-pointer">
                                     <div class="me-3">
-                                        <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                        <img src="{{ asset('img/credimundo_icono.png') }}"
                                             class="w-32px h-32px rounded-pill" alt="">
                                     </div>
 
@@ -349,7 +347,7 @@
 
                                 <div class="dropdown-item cursor-pointer">
                                     <div class="me-3">
-                                        <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                        <img src="{{ asset('img/credimundo_icono.png') }}"
                                             class="w-32px h-32px rounded-pill" alt="">
                                     </div>
 
@@ -367,7 +365,7 @@
 
                                 <div class="dropdown-item cursor-pointer">
                                     <div class="me-3">
-                                        <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                        <img src="{{ asset('img/credimundo_icono.png') }}"
                                             class="w-32px h-32px rounded-pill" alt="">
                                     </div>
 
@@ -470,7 +468,7 @@
                     <a href="#" class="navbar-nav-link align-items-center rounded-pill p-1"
                         data-bs-toggle="dropdown">
                         <div class="status-indicator-container">
-                            <img src="{{ asset('img/credimundo_icono.svg') }}" class="w-32px h-32px rounded-pill"
+                            <img src="{{ asset('img/credimundo_icono.png') }}" class="w-32px h-32px rounded-pill"
                                 alt="">
                             <span class="status-indicator bg-success"></span>
                         </div>
@@ -592,7 +590,7 @@
                                     <a href="#"
                                         class="d-flex align-items-center text-body lh-1 dropdown-toggle py-sm-2"
                                         data-bs-toggle="dropdown" data-bs-display="static">
-                                        <img src="{{ asset('img/credimundo_icono.svg') }}" class="w-32px h-32px me-2"
+                                        <img src="{{ asset('img/credimundo_icono.png') }}" class="w-32px h-32px me-2"
                                             alt="">
                                         <div class="me-auto me-lg-1">
                                             <div class="fs-sm text-muted mb-1">Customer</div>
@@ -610,7 +608,7 @@
                                             </a>
                                         </div>
                                         <a href="#" class="dropdown-item active py-2">
-                                            <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                            <img src="{{ asset('img/credimundo_icono.png') }}"
                                                 class="w-32px h-32px me-2" alt="">
                                             <div>
                                                 <div class="fw-semibold">Tesla Motors Inc</div>
@@ -618,7 +616,7 @@
                                             </div>
                                         </a>
                                         <a href="#" class="dropdown-item py-2">
-                                            <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                            <img src="{{ asset('img/credimundo_icono.png') }}"
                                                 class="w-32px h-32px me-2" alt="">
                                             <div>
                                                 <div class="fw-semibold">De Bijenkorf</div>
@@ -626,7 +624,7 @@
                                             </div>
                                         </a>
                                         <a href="#" class="dropdown-item py-2">
-                                            <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                            <img src="{{ asset('img/credimundo_icono.png') }}"
                                                 class="w-32px h-32px me-2" alt="">
                                             <div>
                                                 <div class="fw-semibold">Royal Dutch Airlines</div>
@@ -634,7 +632,7 @@
                                             </div>
                                         </a>
                                         <a href="#" class="dropdown-item py-2">
-                                            <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                            <img src="{{ asset('img/credimundo_icono.png') }}"
                                                 class="w-32px h-32px me-2" alt="">
                                             <div>
                                                 <div class="fw-semibold">Royal Dutch Shell</div>
@@ -642,7 +640,7 @@
                                             </div>
                                         </a>
                                         <a href="#" class="dropdown-item py-2">
-                                            <img src="{{ asset('img/credimundo_icono.svg') }}" class="w-32px h-32px me-2"
+                                            <img src="{{ asset('img/credimundo_icono.png') }}" class="w-32px h-32px me-2"
                                                 alt="">
                                             <div>
                                                 <div class="fw-semibold">BP plc</div>
@@ -656,17 +654,17 @@
 
                                 <div class="d-inline-flex mt-3 mt-sm-0">
                                     <a href="#" class="status-indicator-container ms-1">
-                                        <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                        <img src="{{ asset('img/credimundo_icono.png') }}"
                                             class="w-32px h-32px rounded-pill" alt="">
                                         <span class="status-indicator bg-warning"></span>
                                     </a>
                                     <a href="#" class="status-indicator-container ms-1">
-                                        <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                        <img src="{{ asset('img/credimundo_icono.png') }}"
                                             class="w-32px h-32px rounded-pill" alt="">
                                         <span class="status-indicator bg-success"></span>
                                     </a>
                                     <a href="#" class="status-indicator-container ms-1">
-                                        <img src="{{ asset('img/credimundo_icono.svg') }}"
+                                        <img src="{{ asset('img/credimundo_icono.png') }}"
                                             class="w-32px h-32px rounded-pill" alt="">
                                         <span class="status-indicator bg-danger"></span>
                                     </a>

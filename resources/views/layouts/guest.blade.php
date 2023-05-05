@@ -31,8 +31,8 @@
 		<div class="container-fluid">
 			<div class="navbar-brand">
 				<a href="{{ url('/') }}" class="d-inline-flex align-items-center">
-					<img src="{{ asset('img/credimundo_icono.svg') }}" alt="">
-					<img src="{{ asset('img/credimundo_letras.svg') }}" class="d-none d-sm-inline-block h-16px ms-3" alt="">
+					<img src="{{ asset('img/credimundo_icono.png') }}" alt="">
+					<img src="{{ asset('img/credimundo_letras.png') }}" class="d-none d-sm-inline-block h-16px ms-3" alt="">
 				</a>
 			</div>
 

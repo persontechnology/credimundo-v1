@@ -13,7 +13,7 @@
         <div class="p-3">
             <div class="d-flex align-items-start mb-3">
                 <a href="#" class="status-indicator-container me-3">
-                    <img src="{{ asset('img/credimundo_icono.svg') }}" class="w-40px h-40px rounded-pill"
+                    <img src="{{ asset('img/credimundo_icono.png') }}" class="w-40px h-40px rounded-pill"
                         alt="">
                     <span class="status-indicator bg-success"></span>
                 </a>
@@ -34,7 +34,7 @@
 
             <div class="d-flex align-items-start mb-3">
                 <a href="#" class="status-indicator-container me-3">
-                    <img src="{{ asset('img/credimundo_icono.svg') }}" class="w-40px h-40px rounded-pill"
+                    <img src="{{ asset('img/credimundo_icono.png') }}" class="w-40px h-40px rounded-pill"
                         alt="">
                     <span class="status-indicator bg-warning"></span>
                 </a>
@@ -44,22 +44,22 @@
 
                     <div class="d-flex my-2">
                         <a href="#" class="status-indicator-container me-1">
-                            <img src="{{ asset('img/credimundo_icono.svg') }}"
+                            <img src="{{ asset('img/credimundo_icono.png') }}"
                                 class="w-32px h-32px rounded-pill" alt="">
                             <span class="status-indicator bg-danger"></span>
                         </a>
                         <a href="#" class="status-indicator-container me-1">
-                            <img src="{{ asset('img/credimundo_icono.svg') }}"
+                            <img src="{{ asset('img/credimundo_icono.png') }}"
                                 class="w-32px h-32px rounded-pill" alt="">
                             <span class="status-indicator bg-success"></span>
                         </a>
                         <a href="#" class="status-indicator-container me-1">
-                            <img src="{{ asset('img/credimundo_icono.svg') }}"
+                            <img src="{{ asset('img/credimundo_icono.png') }}"
                                 class="w-32px h-32px rounded-pill" alt="">
                             <span class="status-indicator bg-success"></span>
                         </a>
                         <a href="#" class="status-indicator-container me-1">
-                            <img src="{{ asset('img/credimundo_icono.svg') }}"
+                            <img src="{{ asset('img/credimundo_icono.png') }}"
                                 class="w-32px h-32px rounded-pill" alt="">
                             <span class="status-indicator bg-success"></span>
                         </a>
@@ -91,7 +91,7 @@
         <div class="p-3">
             <div class="d-flex align-items-start mb-3">
                 <a href="#" class="status-indicator-container me-3">
-                    <img src="{{ asset('img/credimundo_icono.svg') }}" class="w-40px h-40px rounded-pill"
+                    <img src="{{ asset('img/credimundo_icono.png') }}" class="w-40px h-40px rounded-pill"
                         alt="">
                     <span class="status-indicator bg-success"></span>
                 </a>
@@ -115,7 +115,7 @@
 
             <div class="d-flex align-items-start mb-3">
                 <a href="#" class="status-indicator-container me-3">
-                    <img src="{{ asset('img/credimundo_icono.svg') }}" class="w-40px h-40px rounded-pill"
+                    <img src="{{ asset('img/credimundo_icono.png') }}" class="w-40px h-40px rounded-pill"
                         alt="">
                     <span class="status-indicator bg-grey"></span>
                 </a>
@@ -126,7 +126,7 @@
                     <div class="bg-light rounded p-2 my-2">
                         <div class="d-flex align-items-center">
                             <div class="me-2">
-                                <img src="{{ asset('img/credimundo_icono.svg') }}" width="34" height="34"
+                                <img src="{{ asset('img/credimundo_icono.png') }}" width="34" height="34"
                                     alt="">
                             </div>
                             <div class="flex-fill">
@@ -168,7 +168,7 @@
 
             <div class="d-flex align-items-start mb-3">
                 <a href="#" class="status-indicator-container me-3">
-                    <img src="{{ asset('img/credimundo_icono.svg') }}" class="w-40px h-40px rounded-pill"
+                    <img src="{{ asset('img/credimundo_icono.png') }}" class="w-40px h-40px rounded-pill"
                         alt="">
                     <span class="status-indicator bg-danger"></span>
                 </a>
